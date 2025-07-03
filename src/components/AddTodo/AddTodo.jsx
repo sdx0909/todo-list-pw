@@ -19,15 +19,21 @@ function AddTodo({ list, setList }) {
     toast.success("Added new todo!");
   };
   return (
-    <div>
+    <div className="flex flex-row gap-2">
       <input
+        className="w-full px-4 py-3 bg-transparent border-1 outline-none border-zinc-300 rounded-xl placeholder:text-zinc-500 focus:border-zinc-700"
         type="text"
         placeholder="add new todo..."
         value={inputText}
         // setting the input-field
         onChange={(e) => setInputText(e.target.value)}
       />
-      <button onClick={inputText.length > 0 && handleAdd}>Add</button>
+      <button
+        className="px-3 py-1 text-white bg-blue-500 border-2 border-transparent rounded-lg hover:bg-blue-700"
+        onClick={inputText.length > 0 && handleAdd}
+      >
+        Add
+      </button>
     </div>
   );
 }

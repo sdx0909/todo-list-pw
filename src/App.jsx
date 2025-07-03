@@ -25,11 +25,14 @@ function App() {
   ]);
 
   return (
-    <>
-      <Toaster position="top-center" />
+    <div className="max-w-lg px-5 m-auto mb-20 my-10">
+      <h2 className="flex justify-center text-3xl font-bold underline my-3">
+        My ToDo'S
+      </h2>
+      <Toaster position="bottom-right" />
       <AddTodo list={list} setList={setList} />
       <TodoList list={list} setList={setList} />
-    </>
+    </div>
   );
 }
 

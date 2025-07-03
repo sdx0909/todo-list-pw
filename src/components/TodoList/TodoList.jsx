@@ -4,14 +4,16 @@ import toast from "react-hot-toast";
 
 function TodoList({ list, setList }) {
   const handleEdit = (id, title) => {
+    let oldTodoData;
     const updatedList = list.map((t) => {
       if (t.id === id) {
+        oldTodoData = t.todoData;
         t.todoData = title;
       }
       return t;
     });
     setList(updatedList);
-    toast.success(`${title} updated..!`);
+    toast.success(`${oldTodoData} updated..!`);
   };
   const handleDelete = (id) => {
     // filter() will create the array with ele that matches condition.
@@ -23,7 +25,7 @@ function TodoList({ list, setList }) {
     toast.success(`${todo.todoData} deleted!`);
   };
   return (
-    <div>
+    <div className="align-center justify-center">
       {list.length > 0 &&
         list.map((todo) => (
           <Todo
