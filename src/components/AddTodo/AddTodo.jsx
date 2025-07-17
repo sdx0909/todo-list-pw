@@ -1,9 +1,11 @@
 import { nanoid } from "nanoid";
-import { useState } from "react";
+import { useCallback, useContext, useState } from "react";
 import Todo from "../Todo/Todo";
 import toast from "react-hot-toast";
+import TodoContext from "../../context/TodoContext";
 
-function AddTodo({ list, setList }) {
+function AddTodo() {
+  const { list, setList } = useContext(TodoContext);
   // make a new state for input-field
   const [inputText, setInputText] = useState("");
 
@@ -30,7 +32,7 @@ function AddTodo({ list, setList }) {
       />
       <button
         className="px-3 py-1 text-white bg-blue-500 border-2 border-transparent rounded-lg hover:bg-blue-700"
-        onClick={inputText.length > 0 && handleAdd}
+        onClick={inputText.length > 0 ? handleAdd : undefined}
       >
         Add
       </button>

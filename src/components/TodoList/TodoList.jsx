@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Todo from "../Todo/Todo";
 import toast from "react-hot-toast";
+import TodoContext from "../../context/TodoContext";
 
-function TodoList({ list, setList }) {
+function TodoList() {
+  const { list, setList } = useContext(TodoContext);
   const handleEdit = (id, title) => {
     let oldTodoData;
     const updatedList = list.map((t) => {
